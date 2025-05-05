@@ -1,0 +1,41 @@
+/* src/styles/main.css */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --border-radius: 0.5rem;
+    --spacing-unit: 0.5rem;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+  }
+  
+  .btn {
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  
+  .container {
+    padding: calc(var(--spacing-unit) * 2);
+  }
