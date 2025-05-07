@@ -3,12 +3,16 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import './Sidebar.css';
 
+type Page = 'home' | 'wildstacker';
+
 type SidebarProps = {
   isOpen: boolean;
   toggleSidebar: () => void;
+  activePage: Page;
+  onNavigate: (page: Page) => void;
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, activePage, onNavigate }) => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
@@ -18,11 +22,31 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </button>
       </div>
       <Nav className="flex-column">
-        <Nav.Link href="#" active>Home</Nav.Link>
-        <Nav.Link href="#">Dashboard</Nav.Link>
-        <Nav.Link href="#">Analytics</Nav.Link>
-        <Nav.Link href="#">Settings</Nav.Link>
-        <Nav.Link href="#">Profile</Nav.Link>
+        <Nav.Link 
+          active={activePage === 'home'} 
+          onClick={() => onNavigate('home')}
+        >
+          <i className="bi bi-house me-2"></i>
+          Home
+        </Nav.Link>
+        
+        <Nav.Link 
+          active={activePage === 'wildstacker'} 
+          onClick={() => onNavigate('wildstacker')}
+        >
+          <i className="bi bi-layers me-2"></i>
+          WildStacker Config
+        </Nav.Link>
+        
+        <Nav.Link href="#">
+          <i className="bi bi-graph-up me-2"></i>
+          Analytics
+        </Nav.Link>
+        
+        <Nav.Link href="#">
+          <i className="bi bi-gear me-2"></i>
+          Settings
+        </Nav.Link>
       </Nav>
       <div className="sidebar-footer">
         <p>© 2025 ModernApp</p>

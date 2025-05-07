@@ -3,7 +3,13 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import './HomePage.css';
 
-const HomePage: React.FC = () => {
+type Page = 'home' | 'wildstacker';
+
+type HomePageProps = {
+  onNavigate: (page: Page) => void;
+};
+
+const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <Container>
       <Row className="mb-4">
@@ -21,6 +27,27 @@ const HomePage: React.FC = () => {
       <h2 className="section-title">Available Tools</h2>
       
       <Row className="g-4">
+        {/* WildStacker Config Tool */}
+        <Col xs={12} md={6} lg={4}>
+          <Card className="tool-card">
+            <Card.Body>
+              <div className="tool-icon">
+                <i className="bi bi-layers"></i>
+              </div>
+              <Card.Title>WildStacker Config Editor</Card.Title>
+              <Card.Text>
+                Edit your WildStacker plugin configuration files with an interactive editor.
+              </Card.Text>
+              <Button 
+                variant="primary" 
+                onClick={() => onNavigate('wildstacker')}
+              >
+                Open Tool
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+        
         {/* Tool 1 Placeholder */}
         <Col xs={12} md={6} lg={4}>
           <Card className="tool-card">
@@ -79,22 +106,6 @@ const HomePage: React.FC = () => {
               <Card.Title>Team Chat</Card.Title>
               <Card.Text>
                 Communicate with your team in real-time with messaging and file sharing.
-              </Card.Text>
-              <Button variant="outline-primary">Open Tool</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        
-        {/* Tool 5 Placeholder */}
-        <Col xs={12} md={6} lg={4}>
-          <Card className="tool-card">
-            <Card.Body>
-              <div className="tool-icon">
-                <i className="bi bi-gear"></i>
-              </div>
-              <Card.Title>Settings</Card.Title>
-              <Card.Text>
-                Configure your application preferences and account settings.
               </Card.Text>
               <Button variant="outline-primary">Open Tool</Button>
             </Card.Body>

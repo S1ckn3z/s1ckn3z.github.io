@@ -1,0 +1,150 @@
+/* src/pages/WildStackerPage.css */
+.page-header {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Unified Editor Styles */
+.unified-editor {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Navigation Sidebar Styles */
+.config-nav {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.config-nav .nav-link {
+  color: #2c3e50;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.config-nav .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.config-nav .nav-link.active {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+}
+
+/* YAML Preview Tab */
+.yaml-preview-tab {
+  margin-top: 1rem;
+  background-color: #f0f8ff;
+  border-top: 1px solid #dee2e6;
+  font-weight: bold;
+}
+
+.yaml-preview-tab:hover {
+  background-color: #e6f2ff !important;
+}
+
+.yaml-preview-tab.active {
+  background-color: #007bff !important;
+}
+
+/* YAML Preview Styles */
+.yaml-preview {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  max-height: 70vh;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+}
+
+/* YAML Syntax Highlighting */
+.yaml-key {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.yaml-string {
+  color: #008800;
+}
+
+.yaml-number {
+  color: #aa0000;
+}
+
+.yaml-boolean {
+  color: #aa00aa;
+  font-weight: bold;
+}
+
+.yaml-list {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.yaml-comment {
+  color: #888888;
+  font-style: italic;
+}
+
+/* Section Divider Styles */
+.section-divider {
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Form Element Styles */
+.string-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem;
+  font-weight: 600;
+}
