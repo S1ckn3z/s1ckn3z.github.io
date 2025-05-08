@@ -1,9 +1,9 @@
-// src/pages/HomePage.tsx
+// src/pages/HomePage.tsx (update)
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import './HomePage.css';
 
-type Page = 'home' | 'wildstacker';
+type Page = 'home' | 'wildstacker' | 'superiorskyblock';
 
 type HomePageProps = {
   onNavigate: (page: Page) => void;
@@ -17,7 +17,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="welcome-section">
             <h1>Welcome to ModernApp</h1>
             <p className="lead">
-              A modern TypeScript React application with a clean, responsive design.
+              A modern TypeScript React application for managing Minecraft plugin configurations.
             </p>
             <Button variant="primary" size="lg">Get Started</Button>
           </div>
@@ -48,6 +48,27 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </Card>
         </Col>
         
+        {/* SuperiorSkyblock Config Tool */}
+        <Col xs={12} md={6} lg={4}>
+          <Card className="tool-card">
+            <Card.Body>
+              <div className="tool-icon">
+                <i className="bi bi-grid-3x3-gap"></i>
+              </div>
+              <Card.Title>SuperiorSkyblock Config Editor</Card.Title>
+              <Card.Text>
+                Edit your SuperiorSkyblock 2 plugin configuration with a powerful interactive editor.
+              </Card.Text>
+              <Button 
+                variant="primary" 
+                onClick={() => onNavigate('superiorskyblock')}
+              >
+                Open Tool
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+        
         {/* Tool 1 Placeholder */}
         <Col xs={12} md={6} lg={4}>
           <Card className="tool-card">
@@ -64,53 +85,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </Card>
         </Col>
         
-        {/* Tool 2 Placeholder */}
-        <Col xs={12} md={6} lg={4}>
-          <Card className="tool-card">
-            <Card.Body>
-              <div className="tool-icon">
-                <i className="bi bi-file-earmark-text"></i>
-              </div>
-              <Card.Title>Document Manager</Card.Title>
-              <Card.Text>
-                Organize and manage your documents with powerful search and filtering.
-              </Card.Text>
-              <Button variant="outline-primary">Open Tool</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        
-        {/* Tool 3 Placeholder */}
-        <Col xs={12} md={6} lg={4}>
-          <Card className="tool-card">
-            <Card.Body>
-              <div className="tool-icon">
-                <i className="bi bi-calendar-check"></i>
-              </div>
-              <Card.Title>Task Scheduler</Card.Title>
-              <Card.Text>
-                Plan and schedule your tasks with reminders and progress tracking.
-              </Card.Text>
-              <Button variant="outline-primary">Open Tool</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        
-        {/* Tool 4 Placeholder */}
-        <Col xs={12} md={6} lg={4}>
-          <Card className="tool-card">
-            <Card.Body>
-              <div className="tool-icon">
-                <i className="bi bi-chat-dots"></i>
-              </div>
-              <Card.Title>Team Chat</Card.Title>
-              <Card.Text>
-                Communicate with your team in real-time with messaging and file sharing.
-              </Card.Text>
-              <Button variant="outline-primary">Open Tool</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+        {/* Other tools... */}
+        {/* ... */}
         
         {/* Add New Tool Placeholder */}
         <Col xs={12} md={6} lg={4}>
@@ -121,7 +97,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
               <Card.Title>Add New Tool</Card.Title>
               <Card.Text>
-                Extend your application with additional tools and integrations.
+                Extend your application with additional plugin configurations and tools.
               </Card.Text>
               <Button variant="primary">Add Tool</Button>
             </Card.Body>

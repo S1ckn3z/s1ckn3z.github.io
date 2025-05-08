@@ -3,7 +3,7 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import './Sidebar.css';
 
-type Page = 'home' | 'wildstacker';
+type Page = 'home' | 'wildstacker' | 'superiorskyblock';
 
 type SidebarProps = {
   isOpen: boolean;
@@ -36,6 +36,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, activePage, on
         >
           <i className="bi bi-layers me-2"></i>
           WildStacker Config
+        </Nav.Link>
+        
+        <Nav.Link 
+          active={activePage === 'superiorskyblock'} 
+          onClick={() => onNavigate('superiorskyblock')}
+        >
+          <i className="bi bi-grid-3x3-gap me-2"></i>
+          SuperiorSkyblock Config
         </Nav.Link>
         
         <Nav.Link href="#">

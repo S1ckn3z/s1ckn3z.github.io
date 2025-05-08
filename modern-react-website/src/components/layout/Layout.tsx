@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import './Layout.css';
 
-type Page = 'home' | 'wildstacker';
+type Page = 'home' | 'wildstacker' | 'superiorskyblock';
 
 type LayoutProps = {
   children: React.ReactNode;
