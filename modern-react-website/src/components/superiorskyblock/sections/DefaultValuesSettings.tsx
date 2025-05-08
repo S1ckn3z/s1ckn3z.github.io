@@ -331,6 +331,153 @@ const DefaultValuesSettings: React.FC<DefaultValuesSettingsProps> = ({
           />
         </Col>
       </Row>
+
+      <SectionDivider
+        title="Default Containers"
+        description="Configure default items in containers for new islands"
+      />
+
+      <Row>
+        <Col>
+          <Form.Check
+            type="switch"
+            id="default-containers-enabled"
+            label="Enable Default Containers"
+            checked={getConfigValue(['default-containers', 'enabled'], false)}
+            onChange={(e) => updateConfig(['default-containers', 'enabled'], e.target.checked)}
+          />
+        </Col>
+      </Row>
+
+      {getConfigValue(['default-containers', 'enabled'], false) && (
+        <Row>
+          <Col>
+            <Card className="mb-3">
+              <Card.Header>Container Contents</Card.Header>
+              <Card.Body>
+                {Object.entries(getConfigValue(['default-containers', 'containers'], {})).map(([containerType, slots]) => (
+                  <div key={containerType} className="mb-4">
+                    <h5>{containerType}</h5>
+                    {Object.entries(slots as Record<string, {type: string, amount?: number}>).map(([slot, item]) => (
+                      <div key={slot} className="mb-2 d-flex align-items-center">
+                        <span className="me-2">Slot {slot}:</span>
+                        <input
+                          type="text"
+                          value={item.type}
+                          onChange={(e) => updateNestedKeyValue(
+                            ['default-containers', 'containers', containerType, slot], 
+                            'type', 
+                            e.target.value
+                          )}
+                          className="form-control me-2"
+                          placeholder="Item type (e.g., DIAMOND)"
+                        />
+                        <input
+                          type="number"
+                          value={item.amount || ''}
+                          onChange={(e) => updateNestedKeyValue(
+                            ['default-containers', 'containers', containerType, slot], 
+                            'amount', 
+                            e.target.value ? parseInt(e.target.value) : undefined
+                          )}
+                          className="form-control me-2"
+                          placeholder="Amount (optional)"
+                          min={1}
+                        />
+                        <Button 
+                          variant="outline-danger" 
+                          size="sm"
+                          onClick={() => deleteNestedKeyValue(
+                            ['default-containers', 'containers', containerType], 
+                            slot
+                          )}
+                        >
+                          <i className="bi bi-trash"></i>
+                        </Button>
+                      </div>
+                    ))}
+
+                    {/* Add new container item */}
+                    <div className="d-flex mt-3">
+                      <input
+                        id={`new-${containerType}-slot`}
+                        placeholder="Slot number"
+                        className="form-control me-2"
+                        type="number"
+                        min={0}
+                      />
+                      <input
+                        id={`new-${containerType}-type`}
+                        placeholder="Item type (e.g., DIAMOND)"
+                        className="form-control me-2"
+                      />
+                      <input
+                        id={`new-${containerType}-amount`}
+                        type="number"
+                        placeholder="Amount (optional)"
+                        className="form-control me-2"
+                        min={1}
+                      />
+                      <Button 
+                        variant="primary"
+                        onClick={() => {
+                          const slot = (document.getElementById(`new-${containerType}-slot`) as HTMLInputElement).value;
+                          const type = (document.getElementById(`new-${containerType}-type`) as HTMLInputElement).value;
+                          const amount = (document.getElementById(`new-${containerType}-amount`) as HTMLInputElement).value;
+                          if (slot && type) {
+                            updateNestedKeyValue(
+                              ['default-containers', 'containers', containerType, slot], 
+                              'type', 
+                              type
+                            );
+                            if (amount) {
+                              updateNestedKeyValue(
+                                ['default-containers', 'containers', containerType, slot], 
+                                'amount', 
+                                parseInt(amount)
+                              );
+                            }
+                            (document.getElementById(`new-${containerType}-slot`) as HTMLInputElement).value = '';
+                            (document.getElementById(`new-${containerType}-type`) as HTMLInputElement).value = '';
+                            (document.getElementById(`new-${containerType}-amount`) as HTMLInputElement).value = '';
+                          }
+                        }}
+                      >
+                        <i className="bi bi-plus"></i>
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Add new container type */}
+                <div className="d-flex mt-3">
+                  <input
+                    id="new-container-type"
+                    placeholder="Container type (e.g., chest)"
+                    className="form-control me-2"
+                  />
+                  <Button 
+                    variant="primary"
+                    onClick={() => {
+                      const containerType = (document.getElementById('new-container-type') as HTMLInputElement).value;
+                      if (containerType) {
+                        updateNestedKeyValue(
+                          ['default-containers', 'containers'], 
+                          containerType, 
+                          {}
+                        );
+                        (document.getElementById('new-container-type') as HTMLInputElement).value = '';
+                      }
+                    }}
+                  >
+                    <i className="bi bi-plus"></i> Add Container Type
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      )}
     </Form>
   );
 };
