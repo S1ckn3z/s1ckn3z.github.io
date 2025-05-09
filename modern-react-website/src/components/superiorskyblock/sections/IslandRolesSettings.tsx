@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Row, Col, Card } from 'react-bootstrap';
-import { TextInput, NumberInput, StringListEditor, SectionDivider } from '../../wildstacker/FormComponents';
+import { TextInput, NumberInput, SectionDivider } from '../../wildstacker/FormComponents';
+import { PermissionListEditor } from '../PermissionListEditor';
 
 interface IslandRolesSettingsProps {
   getConfigValue: <T>(path: string[], defaultValue: T) => T;
@@ -28,13 +29,12 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 helpText="Display name for the guest role"
               />
               
-              <StringListEditor
+              <PermissionListEditor
                 id="guest-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'guest', 'permissions'], [])}
                 onChange={(values) => updateConfig(['island-roles', 'guest', 'permissions'], values)}
                 helpText="Permissions for guests (non-members)"
-                placeholder="Add permission..."
               />
             </Card.Body>
           </Card>
@@ -52,7 +52,7 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 helpText="Display name for the coop role"
               />
               
-              <StringListEditor
+              <PermissionListEditor
                 id="coop-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'coop', 'permissions'], [
@@ -60,7 +60,6 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 ])}
                 onChange={(values) => updateConfig(['island-roles', 'coop', 'permissions'], values)}
                 helpText="Permissions for coop members"
-                placeholder="Add permission..."
               />
             </Card.Body>
           </Card>
@@ -105,7 +104,7 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
               />
             </Col>
             <Col md={6}>
-              <StringListEditor
+              <PermissionListEditor
                 id="member-role-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'ladder', 'member', 'permissions'], [
@@ -114,7 +113,6 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 ])}
                 onChange={(values) => updateConfig(['island-roles', 'ladder', 'member', 'permissions'], values)}
                 helpText="Permissions for members"
-                placeholder="Add permission..."
               />
             </Col>
           </Row>
@@ -154,7 +152,7 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
               />
             </Col>
             <Col md={6}>
-              <StringListEditor
+              <PermissionListEditor
                 id="mod-role-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'ladder', 'mod', 'permissions'], [
@@ -164,7 +162,6 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 ])}
                 onChange={(values) => updateConfig(['island-roles', 'ladder', 'mod', 'permissions'], values)}
                 helpText="Permissions for moderators"
-                placeholder="Add permission..."
               />
             </Col>
           </Row>
@@ -204,7 +201,7 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
               />
             </Col>
             <Col md={6}>
-              <StringListEditor
+              <PermissionListEditor
                 id="admin-role-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'ladder', 'admin', 'permissions'], [
@@ -215,7 +212,6 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 ])}
                 onChange={(values) => updateConfig(['island-roles', 'ladder', 'admin', 'permissions'], values)}
                 helpText="Permissions for admins"
-                placeholder="Add permission..."
               />
             </Col>
           </Row>
@@ -255,7 +251,7 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
               />
             </Col>
             <Col md={6}>
-              <StringListEditor
+              <PermissionListEditor
                 id="leader-role-permissions"
                 label="Permissions"
                 values={getConfigValue(['island-roles', 'ladder', 'leader', 'permissions'], [
@@ -263,7 +259,6 @@ const IslandRolesSettings: React.FC<IslandRolesSettingsProps> = ({ getConfigValu
                 ])}
                 onChange={(values) => updateConfig(['island-roles', 'ladder', 'leader', 'permissions'], values)}
                 helpText="Permissions for leaders"
-                placeholder="Add permission..."
               />
             </Col>
           </Row>
