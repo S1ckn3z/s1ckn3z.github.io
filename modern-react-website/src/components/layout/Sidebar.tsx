@@ -1,9 +1,9 @@
-// src/components/layout/Sidebar.tsx
+// src/components/layout/Sidebar.tsx (update)
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import './Sidebar.css';
 
-type Page = 'home' | 'wildstacker' | 'superiorskyblock';
+type Page = 'home' | 'wildstacker' | 'superiorskyblock' | 'deluxemenus';
 
 type SidebarProps = {
   isOpen: boolean;
@@ -44,6 +44,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, activePage, on
         >
           <i className="bi bi-grid-3x3-gap me-2"></i>
           SuperiorSkyblock Config
+        </Nav.Link>
+        
+        <Nav.Link 
+          active={activePage === 'deluxemenus'} 
+          onClick={() => onNavigate('deluxemenus')}
+        >
+          <i className="bi bi-menu-button-wide me-2"></i>
+          DeluxeMenus Config
         </Nav.Link>
         
         <Nav.Link href="#">

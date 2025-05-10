@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import './HomePage.css';
 
-type Page = 'home' | 'wildstacker' | 'superiorskyblock';
+type Page = 'home' | 'wildstacker' | 'superiorskyblock' | 'deluxemenus';
 
 type HomePageProps = {
   onNavigate: (page: Page) => void;
@@ -85,8 +85,26 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </Card>
         </Col>
         
-        {/* Other tools... */}
-        {/* ... */}
+        {/* DeluxeMenus Config Tool */}
+        <Col xs={12} md={6} lg={4}>
+          <Card className="tool-card">
+            <Card.Body>
+              <div className="tool-icon">
+                <i className="bi bi-menu-button-wide"></i>
+              </div>
+              <Card.Title>DeluxeMenus Config Editor</Card.Title>
+              <Card.Text>
+                Create and customize GUI menus for your Minecraft server with an interactive editor.
+              </Card.Text>
+              <Button 
+                variant="primary" 
+                onClick={() => onNavigate('deluxemenus')}
+              >
+                Open Tool
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
         
         {/* Add New Tool Placeholder */}
         <Col xs={12} md={6} lg={4}>

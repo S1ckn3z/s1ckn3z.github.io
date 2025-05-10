@@ -1,0 +1,348 @@
+/* src/components/deluxemenus/DeluxeMenusEditor.css */
+.unified-editor {
+  position: relative;
+}
+
+.editor-header-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Navigation Sidebar Styles */
+.sidebar-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+}
+
+.config-nav {
+  padding: 1rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.config-nav .nav-link {
+  color: #2c3e50;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+}
+
+.config-nav .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.config-nav .nav-link.active {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-section-title {
+  color: #6c757d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Menu List Styles */
+.menu-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.menu-item-container {
+  position: relative;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.menu-item-container:hover {
+  background-color: #f8f9fa;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  flex-grow: 1;
+}
+
+.menu-delete-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.menu-item-container:hover .menu-delete-btn {
+  opacity: 1;
+}
+
+.add-menu-link {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* YAML Preview Tab */
+.yaml-preview-tab {
+  margin-top: 1rem;
+  background-color: #f0f8ff;
+  border-top: 1px solid #dee2e6;
+  font-weight: bold;
+}
+
+.yaml-preview-tab:hover {
+  background-color: #e6f2ff !important;
+}
+
+.yaml-preview-tab.active {
+  background-color: #007bff !important;
+}
+
+/* Content Card */
+.content-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  min-height: 500px;
+}
+
+/* Menu Editor Header */
+.menu-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.menu-actions .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.menu-actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Item Slot Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.menu-slot {
+  aspect-ratio: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.menu-slot:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-slot.active {
+  border-color: #3498db;
+  background-color: #e6f7ff;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+}
+
+.menu-slot-content {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.menu-slot-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.menu-slot-number {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  font-size: 0.7rem;
+  color: #6c757d;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+/* YAML Preview Styles */
+.yaml-preview {
+  font-family: 'Consolas', 'Monaco', monospace;
+  white-space: pre-wrap;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  max-height: 600px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.yaml-raw {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.yaml-line {
+  display: flex;
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.yaml-line:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.yaml-line-highlight {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+.yaml-line-number {
+  color: #999;
+  text-align: right;
+  padding-right: 1rem;
+  user-select: none;
+  min-width: 3rem;
+  border-right: 1px solid #ddd;
+  margin-right: 0.5rem;
+}
+
+.yaml-line-content {
+  flex: 1;
+}
+
+.yaml-search-highlight {
+  background-color: rgba(255, 255, 0, 0.4);
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+  font-weight: bold;
+}
+
+.yaml-key {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.yaml-string {
+  color: #008800;
+}
+
+.yaml-number {
+  color: #aa0000;
+}
+
+.yaml-boolean {
+  color: #aa00aa;
+}
+
+.yaml-list {
+  color: #0066cc;
+}
+
+.yaml-comment {
+  color: #888888;
+  font-style: italic;
+}
+
+.yaml-color-code {
+  color: #ff5722;
+  font-weight: bold;
+}
+
+/* Success Alert */
+.success-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Form Components */
+.section-divider {
+  margin: 2rem 0 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+/* Accordion Customization */
+.accordion-button:not(.collapsed) {
+  background-color: #e6f7ff;
+  color: #0066cc;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .editor-actions {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .menu-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

@@ -11,6 +11,7 @@ interface TextInputProps {
   placeholder?: string;
   helpText?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -21,6 +22,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   placeholder,
   helpText,
   required = false,
+  disabled = false,
 }) => {
   return (
     <Form.Group className="mb-3" controlId={id}>
@@ -34,6 +36,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
+        disabled={disabled}
       />
       {helpText && <Form.Text className="text-muted">{helpText}</Form.Text>}
     </Form.Group>
@@ -51,6 +54,7 @@ interface NumberInputProps {
   step?: number;
   helpText?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
 export const NumberInput: React.FC<NumberInputProps> = ({
@@ -63,6 +67,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   step = 1,
   helpText,
   required = false,
+  disabled = false,
 }) => {
   return (
     <Form.Group className="mb-3" controlId={id}>
@@ -78,6 +83,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
         max={max}
         step={step}
         required={required}
+        disabled={disabled}
       />
       {helpText && <Form.Text className="text-muted">{helpText}</Form.Text>}
     </Form.Group>
@@ -91,6 +97,7 @@ interface BooleanToggleProps {
   value: boolean;
   onChange: (value: boolean) => void;
   helpText?: string;
+  disabled?: boolean;
 }
 
 export const BooleanToggle: React.FC<BooleanToggleProps> = ({
@@ -99,6 +106,7 @@ export const BooleanToggle: React.FC<BooleanToggleProps> = ({
   value,
   onChange,
   helpText,
+  disabled = false,
 }) => {
   return (
     <Form.Group className="mb-3" controlId={id}>
@@ -107,6 +115,7 @@ export const BooleanToggle: React.FC<BooleanToggleProps> = ({
         label={label}
         checked={value}
         onChange={(e) => onChange(e.target.checked)}
+        disabled={disabled}
       />
       {helpText && <Form.Text className="text-muted">{helpText}</Form.Text>}
     </Form.Group>
