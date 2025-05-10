@@ -1,0 +1,90 @@
+# ---------------------------------------------------------------------- #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.14.0              #
+# ---------------------------------------------------------------------- #
+#                                                                        #
+# NOTE: This menu was made for a seperate yaml-file!                     #
+#       Add the following code to the config.yml of DeluxeMenus and      #
+#       reload the plugin (/dm reload).                                  #
+#                                                                        #
+# gui_menus:                                                             #
+#   serverselector:                                                      #
+#     file: serverselector.yml                                           #
+#                                                                        #
+# After that, replace the newly created file with this one and reload    #
+# again!                                                                 #
+# ---------------------------------------------------------------------- #
+menu_title: '&8Server'
+open_command: server
+size: 27
+register_command: true
+update_interval: 1
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aServer &7menu.'
+items:
+# Start - Vanilla Join
+  'vanilla_server':
+    material: GRASS_BLOCK
+    slot: 11
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        vanila_online:
+          type: string equals ignorecase
+          input: '%pinger_online_127.0.0.1:25565%'
+          output: '&aOnline'
+    display_name: '&7Vanilla'
+    lore:
+    - ''
+    - '&7Online: &a%pinger_players_127.0.0.1:25565%'
+    - '&7Description: &bOnly vanilla!'
+    - ''
+    - '&a&nClick to join!'
+    click_commands:
+    - '[close]'
+    - '[message] &6&lDeluxe&emenus &8» &7Connecting to server &aVanilla&7...'
+    - '[sound] BLOCK_NOTE_BLOCK_PLING'
+    - '[connect] vanilla<delay=20>'
+# End - Vanilla Join
+
+# Start - Vanilla Offline
+  'vanilla_offline':
+    material: BARRIER
+    slot: 11
+    priority: 2
+    update: true
+    display_name: '&7Vanilla'
+    lore:
+    - ''
+    - '&cThis server is currently offline'
+    - '&cPlease contact a staff-member,'
+    - ''
+    - '&a&nClick to refresh!'
+    click_commands:
+    - '[refresh]'
+# End - Vanilla Offline
+ 
+# Start - Lobby
+  'lobby_server':
+    material: SUNFLOWER
+    slot: 15
+    update: true
+    display_name: '&eLobby'
+    lore:
+    - ''
+    - '&7Online: &e%server_online%'
+    - '&7Description: &eThis is the lobby'
+    - ''
+    - '&a&nYou are here!'
+    click_commands:
+    - '[close]'
+    - '[message] &6&lDeluxe&emenus &8» &7You are already on this server' 
+    - '[sound] BLOCK_NOTE_BLOCK_BASS'
+# End - Lobby
+
+# Extra
+  'filler_glass':
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0-10,12-14,16-26]
+    display_name: '&l'

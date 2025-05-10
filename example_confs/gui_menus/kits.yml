@@ -1,0 +1,112 @@
+# ---------------------------------------------------------------------- #
+#                This Menu Was Made Using DeluxeMenus 1.14.0             #
+# ---------------------------------------------------------------------- #
+#                                                                        #
+# NOTE: This menu was made for a seperate yaml-file!                     #
+#       Add the following code to the config.yml of DeluxeMenus and      #
+#       reload the plugin (/dm reload).                                  #
+#
+# gui_menus:                                                             #
+#   kits:                                                                #
+#     file: kits.yml                                                     #
+#                                                                        #
+# ADD THIS INSIDE config.yml AND kits.yml INSIDE gui_menus FOLDER,       #
+# THEN RELOAD THE PLUGIN (/dm reload)                                    #
+#
+# ---------------------------------------------------------------------- #
+menu_title: '&8Kits Menu'
+open_command:
+- kit
+- kits
+size: 27
+register_command: true
+update_interval: 1
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aKits &7menu.'
+open_requirement:
+  requirements:
+    permission:
+      type: has permission
+      permission: essentials.kit
+      deny_commands: 
+      - '[message] &6&lDeluxe&emenus &8» &7This menu requires the &cessentials.kit &7permission.'
+      - '[sound] BLOCK_NOTE_BLOCK_BASS'
+items:
+# Start - Kit Ready
+  'kit_tools_ready':
+    material: LIME_CONCRETE
+    slot: 13
+    priority: 1
+    view_requirement:
+      requirements:
+        permission:
+          type: has permission
+          permission: essentials.kits.tools
+        available:
+          type: string equals ignorecase
+          input: '%essentials_kit_is_available_tools%'
+          output: 'yes'
+    display_name: ' &c&lTools '
+    lore:
+    - ''
+    - '&8• &7Kit: &cTools'
+    - '&8• &7Status: &aAvailable'
+    - ''
+    - '&8» &a&nClick to Claim'
+    - ''
+    click_commands:
+    - '[player] essentials:kit tools'
+    - '[message] &6&lDeluxe&emenus &8» &7You received the &cTools &7kit.'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+# End - Kit Ready
+
+# Start - Kit Cooldown
+  'kit_tools_cooldown':
+    material: ORANGE_CONCRETE
+    slot: 13
+    priority: 2
+    update: true
+    view_requirement:
+      requirements:
+        permission:
+          type: has permission
+          permission: essentials.kits.tools
+        available:
+          type: string equals ignorecase
+          input: '%essentials_kit_is_available_tools%'
+          output: 'no'
+    display_name: ' &c&lTools '
+    lore:
+    - ''
+    - '&8• &7Kit: &cTools'
+    - '&8• &7Status: &cOn Cooldown'
+    - '&8• &7Available In: &c%essentials_kit_time_until_available_tools%'
+    - ''
+    click_commands:
+    - '[refresh]'
+# End - Kit Cooldown
+
+# Start - Kit Locked
+  'locked':
+    material: RED_CONCRETE
+    slot: 13
+    priority: 3
+    display_name: ' &c&lTools '
+    lore:
+    - ''
+    - '&8• &bKit: &cTools'
+    - '&8• &bStatus: &cLocked'
+    - ''
+    click_commands:
+    - '[close]'
+    - '[message] &6&lDeluxe&emenus &8» &7You don''t have access to this kit!'
+    - '[sound] BLOCK_NOTE_BLOCK_BASS'
+# End - Kit Locked
+
+# Extra
+  'filler_glass':
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0-12,14-26]
+    display_name: '&l'
